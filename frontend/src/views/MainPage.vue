@@ -10,7 +10,7 @@
             test
         </div>
         <div class="col-4 array">
-            test
+            <button type="button" class="btn btn-success" @click="test">저장</button>
         </div>
     </div>
 </template>
@@ -23,6 +23,14 @@ export default {
             postdata: []
         }
     },
+    methods: {
+        test() {
+            this.$http.get('http://127.0.0.1:8000/api/post')
+            .then(res => {
+                console.log(res)
+            })
+        }
+    }
 }
 </script>
 
