@@ -1,10 +1,19 @@
 <template>
     <div>
         <div class="file-design"> 
-            <label for="fileupload">사진 업로드</label>
-            <input type="file" id="fileupload" @change="onFileSelected">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Photo</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" @change="onFileSelected" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept=".jpg, .png, .gif">
+                    <label class="custom-file-label" for="inputGroupFile01">{{ filename }}</label>
+                </div>
+            </div>
         </div>
-        <textarea style="resize: none; width:100%;" name="" id="" rows="10"></textarea>
+        <img class="fileimg" :src="selectedFile" alt="">
+        <textarea style="resize: none; width:100%;" v-model="content" rows="10"></textarea>
+        <button type="button" class="btn btn-success">저장</button>
     </div>
 </template>
 
@@ -13,40 +22,34 @@ export default {
     name: 'WritePage',
     data() {
         return {
+            filename: 'Choose Photo',
             selectedFile: null,
+            content: "",
         }
     },
     methods:{
         onFileSelected(event) {
-            this.selectedFile = event.target.files[0]
-            console.log(this.selectedFile, 1)
+            let inputdata = event.target
+
+            if (inputdata.files && inputdata.files[0]) { 
+                var reader = new FileReader(); 
+                reader.onload = (e) => { 
+                    this.selectedFile = e.target.result
+                    this.filename = inputdata.files[0].name
+                    } 
+                reader.readAsDataURL(inputdata.files[0]); }
         }
     }
 }
 </script>
 
 <style scoped>
-.file-design label { 
-    display: inline-block; 
-    padding: .5em .75em; 
-    color: #999; 
-    font-size: inherit; 
-    line-height: normal; 
-    vertical-align: middle; 
-    background-color: #fdfdfd; 
-    cursor: pointer; 
-    border: 1px solid #ebebeb; 
-    border-bottom-color: #e2e2e2; 
-    border-radius: .25em; 
-} 
-.file-design input[type="file"] { /* 파일 필드 숨기기 */ 
-    position: absolute; 
-    width: 1px; 
-    height: 1px; 
-    padding: 0; 
-    margin: -1px; 
-    overflow: hidden; 
-    clip:rect(0,0,0,0); 
-    border: 0; 
+.fileimg {
+    width: 100%;
+    margin-bottom: 20px; 
+}
+.btn {
+    margin-top: 5px;
+    float: right;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/"><i class="far fa-clipboard"></i> | Diary</a>
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/WritePage"><i class="far fa-edit"></i></a>
+                <a class="nav-item nav-link" href="/WritePage"><i class="far fa-edit fa-lg"></i></a>
             </div>
         </div>
     </nav>
@@ -16,4 +16,7 @@ export default {
 </script>
 
 <style scoped>
+nav {
+    background-color: #ffffff;
+}
 </style>
