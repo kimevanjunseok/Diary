@@ -20,8 +20,8 @@ export default {
 
 <style scoped>
 .container {
-    margin-top: 100px;
-    padding-right: 80px; 
-    padding-left: 80px;
+    margin-top: 120px;
+    padding-right: 100px; 
+    padding-left: 100px;
 }
 </style>

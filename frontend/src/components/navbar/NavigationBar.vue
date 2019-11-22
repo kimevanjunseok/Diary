@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="/"><i class="far fa-clipboard"></i> | Diary</a>
+            <a class="navbar-brand" href="/"><i class="far fa-clipboard fa-lg"></i>&nbsp;Diary</a>
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="/WritePage"><i class="far fa-edit fa-lg"></i></a>
             </div>
@@ -17,6 +17,14 @@ export default {
 
 <style scoped>
 nav {
+    height: 80px;
     background-color: #ffffff;
+}
+.container {
+    padding-right: 100px; 
+    padding-left: 100px;    
+}
+.navbar-brand {
+    font-family: 'Pacifico', cursive;
 }
 </style>
