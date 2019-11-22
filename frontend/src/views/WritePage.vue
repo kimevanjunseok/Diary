@@ -42,7 +42,6 @@ export default {
         },
         Write() {
             const filedata = new FormData()
-            console.log(this.image.files[0])
             filedata.append('content', this.content)
             filedata.append('image', this.image.files[0])
             this.$http.post('http://127.0.0.1:8000/api/post/create/', filedata)
