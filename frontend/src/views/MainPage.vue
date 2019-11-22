@@ -22,9 +22,6 @@
                     <img src="http://www.bloter.net/wp-content/uploads/2017/09/%EA%B5%AC%EA%B8%80-%EC%96%B4%EC%8B%9C%EC%8A%A4%ED%84%B4%ED%8A%B8-%ED%95%9C%EA%B5%AD%EC%96%B4-%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%B6%9C%EC%8B%9C4-765x1045.jpg" alt="">
                 </div>
             </div>
-            <div class="col-4 array">
-                <button type="button" class="btn btn-success" @click="test">저장</button>
-            </div>
         </div>
     </div>
 </template>
@@ -38,12 +35,6 @@ export default {
         }
     },
     methods: {
-        test() {
-            this.$http.get('http://127.0.0.1:8000/api/post/')
-            .then(res => {
-                console.log(res)
-            })
-        }
     }
 }
 </script>

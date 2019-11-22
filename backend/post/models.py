@@ -8,4 +8,4 @@ class Post(models.Model):
     imgfile = ProcessedImageField(
         upload_to = 'blog/post',
 		format = 'JPEG',					
-		options = {'quality': 80})
+		options = {'quality': 100})
