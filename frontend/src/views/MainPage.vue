@@ -2,9 +2,9 @@
     <div>
         <h1>Home</h1>
         <div class="row">
-            <div v-for="data in postdata" v-bind:key="data" class="col-4" style="padding: 0;">
+            <div v-for="(value, key) in postdata" v-bind:key="key" class="col-4" style="padding: 0;">
                 <div class="array">
-                    <img :src="imgUrl + data.imgfile" alt="">
+                    <img :src="imgUrl + value.imgfile" alt="">
                 </div>
             </div>
         </div>

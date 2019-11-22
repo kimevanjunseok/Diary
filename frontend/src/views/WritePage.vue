@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import api from "@/api/api"
+
 export default {
     name: 'WritePage',
     data() {
@@ -28,8 +30,8 @@ export default {
             image: null,
         }
     },
-    methods:{
-        onFileSelected() {
+    methods: {
+        onFileSelected: function() {
             this.image = event.target
             if (this.image.files && this.image.files[0]) { 
                 var reader = new FileReader(); 
@@ -40,14 +42,12 @@ export default {
                 reader.readAsDataURL(this.image.files[0]); 
             }
         },
-        Write() {
+         Write: async function() {
             const filedata = new FormData()
             filedata.append('content', this.content)
             filedata.append('image', this.image.files[0])
-            this.$http.post('http://127.0.0.1:8000/api/post/create/', filedata)
-            .then(res => {
-                console.log(res)
-            })
+            await api.PostWrite(filedata)
+            this.$router.push('/')
         }
     }
 }
