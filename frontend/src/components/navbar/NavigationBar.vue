@@ -17,8 +17,8 @@ export default {
 
 <style scoped>
 nav {
-    height: 80px;
-    background-color: #ffffff;
+    height: 64px;
+    background-color: #fafafa;
 }
 .container {
     padding-right: 100px; 

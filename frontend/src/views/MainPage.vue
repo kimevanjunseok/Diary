@@ -3,7 +3,6 @@
         <div class="profile">
             <img class="profile-img rounded-circle" src="https://news.korean.go.kr/wp-content/uploads/2015/11/secret_CG_visual_151117.jpg" alt="">
         </div>
-        게시물 : {{ postdata.length }}
         <hr>
         <div class="row">
             <div v-for="(value, key) in postdata" v-bind:key="key" class="col-4" style="padding: 0;">
@@ -42,17 +41,13 @@ export default {
 
 <style scoped>
 .profile {
-    position: relative;
-    width: 20%;
-    padding-bottom: 20%;
-    margin-left: 100px; 
-    margin-bottom: 20px; 
+    text-align: center;
 }
 .profile-img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    right: 0;
+    width: 12vw;
+    height: 12vw;
+    margin-top: 120px;
+    margin-bottom: 20px;
 }
 
 .array {

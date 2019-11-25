@@ -2,18 +2,18 @@
     <div>
         <div class="file-design">
             <div class="input-group mb-3">
-                <div class="input-group-prepend">
+                <div class="input-group-prepend" style="margin-top:100px">
                     <span class="input-group-text" id="inputGroupFileAddon01">Photo</span>
                 </div>
-                <div class="custom-file">
+                <div class="custom-file" style="margin-top:100px">
                     <input type="file" ref="image" @change="onFileSelected" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" accept=".jpg, .png, .gif">
                     <label class="custom-file-label" for="inputGroupFile01">{{ filename }}</label>
                 </div>
             </div>
         </div>
-        <img class="fileimg" :src="selectedFile" alt="">
+        <img v-show="selectedFile" class="fileimg" :src="selectedFile" alt="">
         <textarea style="resize: none; width:100%;" v-model="content" rows="10"></textarea>
-        <button type="button" class="btn btn-success" @click="Write">저장</button>
+        <button type="button" class="btn" @click="Write">저장</button>
     </div>
 </template>
 
@@ -59,7 +59,10 @@ export default {
     margin-bottom: 20px; 
 }
 .btn {
-    margin-top: 5px;
-    float: right;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 </style>

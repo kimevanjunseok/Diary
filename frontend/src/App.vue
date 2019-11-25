@@ -1,7 +1,7 @@
 <template>
-    <div id="app">
+    <div id="app" class="container">
         <NavigationBar/>
-        <div class="container">
+        <div>
             <router-view></router-view>
         </div>
     </div>
@@ -14,13 +14,17 @@ export default {
     name: 'app',
     components: {
         NavigationBar,
+    },
+    mounted() {
+        console.log(window.innerHeight)
+        document.getElementById("app").style.minHeight = window.innerHeight + 'px'
     }
 }
 </script>
 
 <style scoped>
 .container {
-    margin-top: 120px;
+    background-color: #FFFFF0;
     padding-right: 100px; 
     padding-left: 100px;
 }
