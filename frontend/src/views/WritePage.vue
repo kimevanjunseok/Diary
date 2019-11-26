@@ -30,6 +30,9 @@ export default {
             image: null,
         }
     },
+    mounted() {
+        
+    },
     methods: {
         onFileSelected: function() {
             this.image = event.target
