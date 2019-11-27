@@ -27,4 +27,3 @@ def create(request):
     post.save()
     
     return Response(status=status.HTTP_200_OK)
-
