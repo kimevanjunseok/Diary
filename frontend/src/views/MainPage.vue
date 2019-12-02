@@ -7,7 +7,13 @@
         <div class="row">
             <div v-for="(value, key) in postdata" v-bind:key="key" class="col-4" style="padding: 0;">
                 <div class="array">
-                    <img class="postimg" :src="imgUrl + value.imgfile" alt="">
+                    <img class="postimg" :src="imgUrl + value.imgfile" alt="" @click="$bvModal.show(value.imgfile)">
+                    <b-modal :id="value.imgfile" hide-footer>
+                        <div class="d-block text-center">
+                            <img style="width:50%" :src="imgUrl + value.imgfile" alt="">
+                        </div>
+                        <b-button class="mt-3" block @click="$bvModal.hide(value.imgfile)">Close Me</b-button>
+                    </b-modal>
                 </div>
             </div>
         </div>

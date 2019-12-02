@@ -13,11 +13,21 @@
         </div>
         <img v-show="selectedFile" class="fileimg" :src="selectedFile" alt="">
         <textarea style="resize: none; width:100%;" v-model="content" rows="10"></textarea>
-        <div id="map" style="width:500px;height:400px;"></div>
-        <button type="button" class="btn" @click="Write">저장</button>
-        
+
+        <button class="btn" id="show-btn" @click="$bvModal.show('bv-modal-map')">Open Map</button>
+
+        <b-modal id="bv-modal-map" hide-footer>
+            <template v-slot:modal-title>
+                위치 저장
+            </template>
+            <div class="d-block text-center">
+                <div id="map" style="width:100%;height:32vw;"></div>
+                <button type="button" class="btn" @click="mapCreate">저장</button>  
+            </div>
+            <button class="mt-3 btn" block @click="$bvModal.hide('bv-modal-map')">Close Me</button>
+        </b-modal>
       
-                
+        <button type="button" class="btn" @click="Write">Save</button>     
     </div>
     
 </template>
@@ -38,15 +48,18 @@ export default {
         }
     },
     mounted() {
-        let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-        let options = { //지도를 생성할 때 필요한 기본 옵션
-            center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-            level: 3 //지도의 레벨(확대, 축소 정도)
-        };
-
-        let map = new kakao.maps.Map(container, options);
+        
     },
     methods: {
+        mapCreate: function() {
+            let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+            let options = { //지도를 생성할 때 필요한 기본 옵션
+                center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+                level: 3 //지도의 레벨(확대, 축소 정도)
+            };
+
+            let map = new kakao.maps.Map(container, options);
+        },
         onFileSelected: function() {
             this.image = event.target
             if (this.image.files && this.image.files[0]) { 
