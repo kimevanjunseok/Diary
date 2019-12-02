@@ -19,6 +19,12 @@ const router = new Router({
           component: () => import("./views/WritePage"),
           meta: { requiresAuth: true }
         },
+        {
+          path: "/UpdatePage",
+          name: "UpdatePage",
+          component: () => import("./views/UpdatePage"),
+          meta: { requiresAuth: true }
+        },
     ]
 })
 export default router;

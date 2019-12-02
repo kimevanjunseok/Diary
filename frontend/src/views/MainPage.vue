@@ -8,11 +8,15 @@
             <div v-for="(value, key) in postdata" v-bind:key="key" class="col-4" style="padding: 0;">
                 <div class="array">
                     <img class="postimg" :src="imgUrl + value.imgfile" alt="" @click="$bvModal.show(value.imgfile)">
-                    <b-modal :id="value.imgfile" hide-footer>
+                    <b-modal :id="value.imgfile" size="lg" hide-footer>
+                        <template v-slot:modal-header="{ close }">
+                            <i class="fas fa-ellipsis-v modal-icon" @click="UpdatePage(value.id)"></i>
+                        </template>
+           
                         <div class="d-block text-center">
-                            <img style="width:50%" :src="imgUrl + value.imgfile" alt="">
+                            <img class="modal-img" :src="imgUrl + value.imgfile" alt="">
+                            <p>{{ value.content }}</p>
                         </div>
-                        <b-button class="mt-3" block @click="$bvModal.hide(value.imgfile)">Close Me</b-button>
                     </b-modal>
                 </div>
             </div>
@@ -40,6 +44,10 @@ export default {
                 .then(res => {
                     this.postdata = res.data
                 })
+        },
+        UpdatePage: function(id) {
+            console.log(id)
+            this.$router.push('UpdatePage')
         }
     },
 }
@@ -71,5 +79,15 @@ export default {
 
 .postimg:hover {
     opacity: 0.7;
+}
+
+.modal-icon {
+    margin-left: 98%;
+    float: right;
+    color:rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+.modal-img {
+    width: 50%;
 }
 </style>

@@ -16,7 +16,6 @@ export default {
         NavigationBar,
     },
     mounted() {
-        console.log(window.innerHeight)
         document.getElementById("app").style.minHeight = window.innerHeight + 'px'
     }
 }

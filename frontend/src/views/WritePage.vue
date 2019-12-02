@@ -24,7 +24,7 @@
                 <div id="map" style="width:100%;height:32vw;"></div>
                 <button type="button" class="btn" @click="mapCreate">저장</button>  
             </div>
-            <button class="mt-3 btn" block @click="$bvModal.hide('bv-modal-map')">Close Me</button>
+            <button class="mt-3 btn" block @click="$bvModal.hide('bv-modal-map')">Save</button>
         </b-modal>
       
         <button type="button" class="btn" @click="Write">Save</button>     
