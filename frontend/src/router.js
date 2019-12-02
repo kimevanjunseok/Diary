@@ -20,7 +20,7 @@ const router = new Router({
           meta: { requiresAuth: true }
         },
         {
-          path: "/UpdatePage",
+          path: "/UpdatePage/:id",
           name: "UpdatePage",
           component: () => import("./views/UpdatePage"),
           meta: { requiresAuth: true }

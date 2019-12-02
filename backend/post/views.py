@@ -18,6 +18,10 @@ def index(request):
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def update_page(request):
+    return
+
 @api_view(['POST'])
 def create(request):
     content = request.data['content']

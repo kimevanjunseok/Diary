@@ -46,8 +46,7 @@ export default {
                 })
         },
         UpdatePage: function(id) {
-            console.log(id)
-            this.$router.push('UpdatePage')
+            this.$router.push({name: 'UpdatePage', params: {id: id}})
         }
     },
 }
