@@ -18,20 +18,9 @@ def index(request):
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
 
-@api_view(['GET', 'PATCH'])
-def update(request, post_pk):
-    post = get_object_or_404(Post, pk=post_pk)
-    print(request.method)
-    if request.method == 'GET':
-        serializer = PostUpdateSerializer(post)
-        return Response(serializer.data)
-    
-    if request.method == 'PATCH':
-        print('hi')
-        return Response(status=status.HTTP_200_OK)
-
 @api_view(['POST'])
 def create(request):
+    print(request)
     content = request.data['content']
     imgfile = request.data['image']
 
@@ -39,3 +28,17 @@ def create(request):
     post.save()
     
     return Response(status=status.HTTP_200_OK)
+
+@api_view(['GET', 'PATCH'])
+def update(request, post_pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    serializer = PostUpdateSerializer(post)
+    if request.method == 'GET':
+        return Response(serializer.data)
+    
+    if request.method == 'PATCH':
+        post.content = request.data['content']
+        if request.data['image'] != 'null':
+            post.imgfile = request.data['image']
+        post.save()
+        return Response(status=status.HTTP_200_OK)

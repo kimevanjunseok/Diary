@@ -43,7 +43,6 @@ export default {
     },
     mounted() {
         this.GetUserData(this.postid)
-
     },
     methods: {
         GetUserData: async function(id) {
@@ -66,7 +65,6 @@ export default {
                 } 
                 reader.readAsDataURL(this.image.files[0]); 
             }
-            console.log(this.image.files[0])
         },
          Write: async function() {
             const filedata = new FormData()
@@ -77,7 +75,7 @@ export default {
                 filedata.append('image', null)
             }
             await api.Update(this.postid, filedata)
-            // this.$router.push('/')
+            this.$router.push('/')
         }
     }
 }
