@@ -73,7 +73,7 @@ export default {
          Write: async function() {
             const filedata = new FormData()
             filedata.append('content', this.content)
-            filedata.append('image', this.image.files[0])
+            filedata.append('imgfile', this.image.files[0])
             await api.PostWrite(filedata)
             this.$router.push('/')
         }

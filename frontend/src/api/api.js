@@ -13,10 +13,13 @@ export default {
         return axios.post(`${apiUrl}/api/post/create/`, params)
     },
     UpdatePage(id) {
-        return axios.get(`${apiUrl}/api/post/update/${id}/`)
+        return axios.get(`${apiUrl}/api/post/${id}/`)
     },
-    UpdatePost(id, params) {
+    UpdatePatch(id, params) {
         return axios.patch(`${apiUrl}/api/post/update/${id}/`, params)
+    },
+    UpdatePut(id, params) {
+        return axios.put(`${apiUrl}/api/post/update/${id}/`, params)
     },
     DeletePost(id) {
         return axios.delete(`${apiUrl}/api/post/update/${id}/`)

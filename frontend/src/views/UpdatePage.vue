@@ -70,11 +70,12 @@ export default {
             const filedata = new FormData()
             filedata.append('content', this.content)
             if (this.image) {
-                filedata.append('image', this.image.files[0])
+                filedata.append('imgfile', this.image.files[0])
+                await api.UpdatePut(this.postid, filedata)
             } else {
-                filedata.append('image', null)
+                await api.UpdatePatch(this.postid, filedata)
             }
-            await api.UpdatePost(this.postid, filedata)
+
             this.$router.push('/')
         }
     }
