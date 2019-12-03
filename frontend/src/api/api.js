@@ -11,5 +11,8 @@ export default {
     },
     PostWrite(params) {
         return axios.post(`${apiUrl}/api/post/create/`, params)
-    }
+    },
+    UpdatePage(params) {
+        return axios.get(`${apiUrl}/api/post/update_page/${params}`)
+    },
 }

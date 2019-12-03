@@ -29,7 +29,6 @@
       
         <button type="button" class="btn" @click="Write">Save</button>     
     </div>
-    
 </template>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=430d2bc0c6980838704c2c88e382e1f3"></script>
