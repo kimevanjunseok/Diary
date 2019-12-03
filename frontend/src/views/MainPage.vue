@@ -10,7 +10,13 @@
                     <img class="postimg" :src="imgUrl + value.imgfile" alt="" @click="$bvModal.show(value.imgfile)">
                     <b-modal :id="value.imgfile" size="lg" hide-footer>
                         <template v-slot:modal-header="{ close }">
-                            <i class="fas fa-ellipsis-v modal-icon" @click="UpdatePage(value.id)"></i>
+                            <i class="fas fa-ellipsis-v modal-icon" v-b-modal.modal-1></i>
+
+                            <b-modal id="modal-1" title="BootstrapVue" size="sm" hide-header hide-footer>
+                                <p class="modal-p" @click="UpdatePage(value.id)">수정</p>
+                                <hr>
+                                <p class="modal-p" @click="Delete(value.id)">삭제</p>
+                            </b-modal>
                         </template>
            
                         <div class="d-block text-center">
@@ -47,6 +53,12 @@ export default {
         },
         UpdatePage: function(id) {
             this.$router.push({name: 'UpdatePage', params: {id: id}})
+        },
+        Delete: function(id) {
+            const answer = confirm("정말 게시물을 삭제하시겠습니까?")
+            if (answer) {
+                api.DeletePost(id)
+            }
         }
     },
 }
@@ -88,5 +100,11 @@ export default {
 }
 .modal-img {
     width: 50%;
+}
+
+.modal-p {
+    margin: 0px;
+    text-align: center;
+    cursor: pointer;
 }
 </style>

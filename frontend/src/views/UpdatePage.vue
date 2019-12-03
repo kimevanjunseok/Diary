@@ -74,7 +74,7 @@ export default {
             } else {
                 filedata.append('image', null)
             }
-            await api.Update(this.postid, filedata)
+            await api.UpdatePost(this.postid, filedata)
             this.$router.push('/')
         }
     }

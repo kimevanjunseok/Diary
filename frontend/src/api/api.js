@@ -15,7 +15,10 @@ export default {
     UpdatePage(id) {
         return axios.get(`${apiUrl}/api/post/update/${id}/`)
     },
-    Update(id, params) {
+    UpdatePost(id, params) {
         return axios.patch(`${apiUrl}/api/post/update/${id}/`, params)
     },
+    DeletePost(id) {
+        return axios.delete(`${apiUrl}/api/post/update/${id}/`)
+    }
 }
