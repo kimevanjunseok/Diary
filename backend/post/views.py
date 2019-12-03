@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 from .models import Post
 
-from .serializers import PostSerializer, PostDetailSerializer
+from .serializers import PostSerializer, PostUpdateSerializer
 
 
 # Create your views here.
@@ -18,11 +18,17 @@ def index(request):
     serializer = PostSerializer(posts, many=True)
     return Response(serializer.data)
 
-@api_view(['GET'])
-def update_page(request, post_pk):
+@api_view(['GET', 'PATCH'])
+def update(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
-    serializer = PostDetailSerializer(post)
-    return Response(serializer.data)
+    print(request.method)
+    if request.method == 'GET':
+        serializer = PostUpdateSerializer(post)
+        return Response(serializer.data)
+    
+    if request.method == 'PATCH':
+        print('hi')
+        return Response(status=status.HTTP_200_OK)
 
 @api_view(['POST'])
 def create(request):

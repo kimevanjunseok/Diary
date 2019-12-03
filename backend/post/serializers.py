@@ -6,7 +6,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'content', 'imgfile',]
 
-class PostDetailSerializer(serializers.ModelSerializer):
+class PostUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         fields = ['id', 'content', 'imgfile',]
