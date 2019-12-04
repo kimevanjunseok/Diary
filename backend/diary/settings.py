@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'post.apps.PostConfig',
-    'auth.apps.AuthConfig',
+    'userauth.apps.UserauthConfig',
     'rest_framework',
     'imagekit',
     'django.contrib.admin',
