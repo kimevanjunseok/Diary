@@ -17,12 +17,12 @@ export default {
 
 <style scoped>
 nav {
-    height: 64px;
+    height: 48px;
     background-color: #fafafa;
 }
 .container {
-    padding-right: 100px; 
-    padding-left: 100px;    
+    padding-right: 12vw;
+    padding-left: 12vw;   
 }
 .navbar-brand {
     font-family: 'Pacifico', cursive;

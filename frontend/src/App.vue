@@ -24,7 +24,7 @@ export default {
 <style scoped>
 .container {
     background-color: #FFFFF0;
-    padding-right: 100px; 
-    padding-left: 100px;
+    padding-right: 12vw; 
+    padding-left: 12vw;
 }
 </style>
