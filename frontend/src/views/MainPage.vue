@@ -58,6 +58,7 @@ export default {
             const answer = confirm("정말 게시물을 삭제하시겠습니까?")
             if (answer) {
                 api.DeletePost(id)
+                window.location.href = '/'
             }
         }
     },

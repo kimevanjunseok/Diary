@@ -13,9 +13,9 @@ def index(request):
     return Response(serializer.data)
 
 @api_view(['POST'])
-def create(request):
+def create_post(request):
     content = request.data['content']
-    imgfile = request.data['image']
+    imgfile = request.data['imgfile']
 
     post = Post(content=content, imgfile=imgfile)
     post.save()
@@ -29,7 +29,7 @@ def read_post(request, post_pk):
     return Response(serializer.data)
 
 @api_view(['PUT', 'PATCH'])
-def update(request, post_pk):
+def update_post(request, post_pk):
     post = get_object_or_404(Post, pk=post_pk)
     
     if request.method == 'PATCH':
@@ -43,3 +43,9 @@ def update(request, post_pk):
         if serializer.is_valid():
             serializer.save()
         return Response(status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+def delete_post(request, post_pk):
+    post = get_object_or_404(Post, pk=post_pk)
+    post.delete()
+    return Response(status=status.HTTP_200_OK)

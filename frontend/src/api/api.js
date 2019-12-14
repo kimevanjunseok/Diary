@@ -22,6 +22,6 @@ export default {
         return axios.put(`${apiUrl}/api/post/update/${id}/`, params)
     },
     DeletePost(id) {
-        return axios.delete(`${apiUrl}/api/post/update/${id}/`)
+        return axios.delete(`${apiUrl}/api/post/delete/${id}/`)
     }
 }

@@ -14,7 +14,7 @@
         <img v-show="selectedFile" class="fileimg" :src="selectedFile" alt="">
         <textarea style="resize: none; width:100%;" v-model="content" rows="10"></textarea>
 
-        <button class="btn" id="show-btn" @click="$bvModal.show('bv-modal-map')">Open Map</button>
+        <!-- <button class="btn" id="show-btn" @click="$bvModal.show('bv-modal-map')">Open Map</button> -->
 
         <b-modal id="bv-modal-map" hide-footer>
             <template v-slot:modal-title>
